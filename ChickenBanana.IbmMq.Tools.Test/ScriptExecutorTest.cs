@@ -1,4 +1,5 @@
 ﻿using ChickenBanana.IbmMq.Tools.Certificates;
+using ChickenBanana.IbmMq.Tools.Mqsc;
 using Microsoft.Extensions.Logging.Abstractions;
 using System.Threading.Tasks;
 using Xunit;
@@ -12,7 +13,7 @@ namespace ChickenBanana.IbmMq.Tools.Test
         {
             var queueManager = "QM1";
 
-            var scriptBuilder = new ScriptBuilder(queueManager);
+            var scriptBuilder = new MqscScriptBuilder(queueManager);
             scriptBuilder
                 .AddClientConnectionChannel("DemoChannel", "DEV.APP.SVRCONN")
                     .WithReplace()

@@ -8,7 +8,7 @@ namespace IbmMQ.ConnectionTest
         [Fact]
         public void BuildScript_With_Channel_And_Ssl()
         {
-            var scriptBuilder = new ScriptBuilder("QM1");
+            var scriptBuilder = new MqscScriptBuilder("QM1");
             scriptBuilder.AddClientConnectionChannel("DemoChannel", "DEV1")
                 .WithDescription("Demo Channel Description")
                 .WithDefaultReconnection()

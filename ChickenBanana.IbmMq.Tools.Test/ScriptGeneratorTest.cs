@@ -10,7 +10,7 @@ namespace IbmMQ.ConnectionTest
         {
             var scriptGenerator = new ScriptGenerator("QM1", (builder) =>
             {
-                var myBuilder = new ScriptBuilder("QM1");
+                var myBuilder = new MqscScriptBuilder("QM1");
                 myBuilder
                     .AddClientConnectionChannel("DEV.APP.SVRCONN", "DEV.ClientConnection")
                     .WithDescription("Demo TAB")

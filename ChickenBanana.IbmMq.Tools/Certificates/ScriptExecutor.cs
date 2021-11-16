@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace ChickenBanana.IbmMq.Tools.Certificates
 {
+    /// <summary>
+    /// Runs generated MQSC scripts.
+    /// </summary>
     public class ScriptExecutor
     {
         private readonly ScriptExecutorOptions _options;

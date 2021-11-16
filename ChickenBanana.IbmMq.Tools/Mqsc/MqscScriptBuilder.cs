@@ -1,17 +1,17 @@
 ﻿using System.Collections.Generic;
 using System.Text;
 
-namespace ChickenBanana.IbmMq.Tools.Certificates
+namespace ChickenBanana.IbmMq.Tools.Mqsc
 {
     /// <summary>
     /// Builder to simply creating <see cref="https://www.ibm.com/docs/en/ibm-mq/9.1?topic=administering-administration-using-mqsc-commands">MQSC commands</see>.
     /// </summary>
-    public class ScriptBuilder
+    public class MqscScriptBuilder
     {
         private readonly string _queueManager;
         private IList<ClientConnectionChannelScriptBuilder> _clientConnections;
 
-        public ScriptBuilder(string queueManager)
+        public MqscScriptBuilder(string queueManager)
         {
             _clientConnections = new List<ClientConnectionChannelScriptBuilder>();
             _queueManager = queueManager;

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ChickenBanana.IbmMq.Tools.Mqsc;
+using System;
 using System.IO;
 
 namespace ChickenBanana.IbmMq.Tools.Certificates
@@ -7,9 +8,9 @@ namespace ChickenBanana.IbmMq.Tools.Certificates
     {
         private string _script;
 
-        public ScriptGenerator(string queueManager, Func<ScriptBuilder, string> scriptGenerationFunction)
+        public ScriptGenerator(string queueManager, Func<MqscScriptBuilder, string> scriptGenerationFunction)
         {
-            _script = scriptGenerationFunction.Invoke(new ScriptBuilder(queueManager));
+            _script = scriptGenerationFunction.Invoke(new MqscScriptBuilder(queueManager));
 
         }
 

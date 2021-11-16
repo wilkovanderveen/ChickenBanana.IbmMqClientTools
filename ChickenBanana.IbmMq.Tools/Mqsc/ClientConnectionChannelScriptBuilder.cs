@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace ChickenBanana.IbmMq.Tools.Certificates
+namespace ChickenBanana.IbmMq.Tools.Mqsc
 {
     /// <summary>
     /// Builder for creating the <see cref="https://www.ibm.com/docs/en/ibm-mq/9.2?topic=reference-define-channel-define-new-channel">Define channel</see> command.

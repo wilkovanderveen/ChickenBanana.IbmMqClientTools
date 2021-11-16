@@ -1,6 +1,6 @@
 ﻿using System.Text;
 
-namespace ChickenBanana.IbmMq.Tools.Certificates
+namespace ChickenBanana.IbmMq.Tools.Mqsc
 {
     public class SslCertificateSectionBuilder
     {
