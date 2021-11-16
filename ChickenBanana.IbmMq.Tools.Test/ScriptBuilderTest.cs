@@ -1,4 +1,4 @@
-﻿using ChickenBanana.IbmMq.Tools.Certificates;
+﻿using ChickenBanana.IbmMq.Tools.Mqsc;
 using Xunit;
 
 namespace IbmMQ.ConnectionTest
