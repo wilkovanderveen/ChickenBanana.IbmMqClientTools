@@ -2,6 +2,10 @@
 
 namespace ChickenBanana.IbmMq.Tools.Certificates
 {
+    /// <summary>
+    /// Builder for creating the <see cref="https://www.ibm.com/docs/en/ibm-mq/9.2?topic=reference-define-channel-define-new-channel">Define channel</see> command.
+    /// </summary>
+    /// <seealso cref="https://www.ibm.com/docs/en/ibm-mq/9.2?topic=reference-runmqsc-run-mqsc-commands"/>
     public class ClientConnectionChannelScriptBuilder
     {
         private readonly string _name;
@@ -12,6 +16,7 @@ namespace ChickenBanana.IbmMq.Tools.Certificates
         private SslCertificateSectionBuilder _ssl;
         private StringBuilder _scriptStringBuilder;
         private long _maximumMessageLength;
+        private bool _replace;
 
         public ClientConnectionChannelScriptBuilder(string name, string connectionName, string queueManager)
         {
@@ -60,6 +65,12 @@ namespace ChickenBanana.IbmMq.Tools.Certificates
             return _ssl;
         }
 
+        public ClientConnectionChannelScriptBuilder WithReplace(bool shouldReplace = true)
+        {
+            _replace = shouldReplace;
+            return this;
+        }
+
         public ClientConnectionChannelScriptBuilder WithDefaultReconnection()
         {
             _defaultReconnection = true;
@@ -85,6 +96,11 @@ namespace ChickenBanana.IbmMq.Tools.Certificates
             if (_ssl != null)
             {
                 _scriptStringBuilder.Append(_ssl.Build());
+            }
+
+            if (_replace)
+            {
+                _scriptStringBuilder.Append(" REPLACE");
             }
 
             return _scriptStringBuilder.ToString();

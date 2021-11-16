@@ -3,6 +3,9 @@ using System.Text;
 
 namespace ChickenBanana.IbmMq.Tools.Certificates
 {
+    /// <summary>
+    /// Builder to simply creating <see cref="https://www.ibm.com/docs/en/ibm-mq/9.1?topic=administering-administration-using-mqsc-commands">MQSC commands</see>.
+    /// </summary>
     public class ScriptBuilder
     {
         private readonly string _queueManager;
