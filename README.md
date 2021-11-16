@@ -1,4 +1,4 @@
-# IbmMQ
+# IBM MQ client tools for .NET Core 
 Tools and services for IBM MQ.
 
 Copyright 2021 Wilko van der Veen
