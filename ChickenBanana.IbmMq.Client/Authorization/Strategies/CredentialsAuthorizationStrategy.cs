@@ -18,6 +18,6 @@ namespace ChickenBanana.IbmMq.Client.Authorization.Strategies
             mqSettings.Add(MQC.USER_ID_PROPERTY, settings.Username);
             mqSettings.Add(MQC.PASSWORD_PROPERTY, settings.Password);
             mqSettings.Add(MQC.USE_MQCSP_AUTHENTICATION_PROPERTY, true);
-        }
+         }
     }
 }

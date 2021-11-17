@@ -28,9 +28,15 @@ namespace ChickenBanana.IbmMq.Tools.Mqsc
             return scriptStringBuilder.ToString();
         }
 
-        public ClientConnectionChannelScriptBuilder AddClientConnectionChannel(string name, string connectionName)
+        /// <summary>
+        /// Adds a client connection channel to the MQ instance.
+        /// </summary>
+        /// <param name="serverConnectionName"></param>
+        /// <param name="clientConnectionName"></param>
+        /// <returns></returns>
+        public ClientConnectionChannelScriptBuilder AddClientConnectionChannel(string serverConnectionName, string clientConnectionName)
         {
-            var channelBuilder = new ClientConnectionChannelScriptBuilder(name, connectionName, _queueManager);
+            var channelBuilder = new ClientConnectionChannelScriptBuilder(serverConnectionName, clientConnectionName, _queueManager);
 
             _clientConnections.Add(channelBuilder);
             return channelBuilder;

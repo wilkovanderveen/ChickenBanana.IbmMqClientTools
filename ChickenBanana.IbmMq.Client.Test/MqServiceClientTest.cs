@@ -39,7 +39,10 @@ namespace IbmMQ.ConnectionTest
         {
             var certificateSettings = new CertificateAuthorizationSettings
             {
-                CertificateLabel = "ibmwebspheremqqm1"
+                CertificateLabel = "ibmwebspheremq",
+                ChannelLibraryFolder = @"C:\ProgramData\IBM\MQ\qmgrs\QM1\@ipcc",
+                ChannelLibraryName = "AMQCLCHL.TAB",
+              
             };
 
             var certificateAuthorizationSettings = new CertificateAuthorizationStrategy(certificateSettings);
@@ -70,7 +73,7 @@ namespace IbmMQ.ConnectionTest
             {
                 QueueManagerName = "QM1",
                 Channel = "DEV.APP.SVRCONN",
-                Hostname = "localhost"
+                Hostname = "127.0.0.1"
             };
 
             var logger = NullLogger.Instance;

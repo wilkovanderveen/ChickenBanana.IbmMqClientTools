@@ -1,4 +1,5 @@
 ﻿using ChickenBanana.IbmMq.Tools.Certificates;
+using ChickenBanana.IbmMq.Tools.Mqsc;
 using Xunit;
 
 namespace IbmMQ.ConnectionTest
@@ -8,7 +9,7 @@ namespace IbmMQ.ConnectionTest
         [Fact]
         public void GenerateScript_QM1_DEV()
         {
-            var scriptGenerator = new ScriptGenerator("QM1", (builder) =>
+            var scriptGenerator = new MqscScriptGenerator("QM1", (builder) =>
             {
                 var myBuilder = new MqscScriptBuilder("QM1");
                 myBuilder

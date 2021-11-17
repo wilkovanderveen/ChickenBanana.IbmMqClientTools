@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using ChickenBanana.IbmMq.Tools.Utils;
+using Microsoft.Extensions.Logging;
 using System.Diagnostics;
 using System.IO;
 using System.Text;
@@ -20,8 +21,6 @@ namespace ChickenBanana.IbmMq.Tools.Certificates
             _options = options;
             _logger = logger;
         }
-
-
 
         public async Task ExecuteScriptAsync(string queueManager, string script, CancellationToken cancellationToken)
         {
@@ -58,6 +57,8 @@ namespace ChickenBanana.IbmMq.Tools.Certificates
 
         private async Task<int> ExecuteProcessAsync(string filename, string arguments)
         {
+            PermissionChecker.CheckAdministrativeRights();
+
             var taskCompletionSource = new TaskCompletionSource<int>();
 
             var startInfo = new ProcessStartInfo
@@ -66,13 +67,8 @@ namespace ChickenBanana.IbmMq.Tools.Certificates
                 Arguments = arguments,
                 RedirectStandardOutput = true,
                 CreateNoWindow = true,
-                UseShellExecute = false
-            };
-
-            //if (asAdministrator)
-            //{
-            //    startInfo.Verb = "runas";
-            //}
+                UseShellExecute = false,                
+            };          
 
             var process = new Process
             {
@@ -90,7 +86,6 @@ namespace ChickenBanana.IbmMq.Tools.Certificates
 
             var logStringBuilder = new StringBuilder();
 
-            
             while (!process.StandardOutput.EndOfStream && started)
             {
                 var line = process.StandardOutput.ReadLine();

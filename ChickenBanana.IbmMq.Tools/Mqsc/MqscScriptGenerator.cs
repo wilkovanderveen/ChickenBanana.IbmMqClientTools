@@ -4,11 +4,11 @@ using System.IO;
 
 namespace ChickenBanana.IbmMq.Tools.Certificates
 {
-    public class ScriptGenerator
+    public class MqscScriptGenerator
     {
         private string _script;
 
-        public ScriptGenerator(string queueManager, Func<MqscScriptBuilder, string> scriptGenerationFunction)
+        public MqscScriptGenerator(string queueManager, Func<MqscScriptBuilder, string> scriptGenerationFunction)
         {
             _script = scriptGenerationFunction.Invoke(new MqscScriptBuilder(queueManager));
 
